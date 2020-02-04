@@ -37,6 +37,8 @@ registerExtendRouter()
 
 registerInterceptorRouter()
 
+registerCancelRouter()
+
 function registerSimpleRouter() {
   router.get('/simple/get', function(req, res) {
     res.json({
@@ -129,6 +131,20 @@ function registerExtendRouter() {
         age: 18
       }
     })
+  })
+}
+
+function registerCancelRouter() {
+  router.get('/cancel/get', function(req, res) {
+    setTimeout(() => {
+      res.json('hello')
+    }, 1000)
+  })
+
+  router.post('/cancel/post', function(req, res) {
+    setTimeout(() => {
+      res.json(req.body)
+    }, 1000)
   })
 }
 
