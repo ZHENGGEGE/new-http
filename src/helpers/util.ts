@@ -1,3 +1,5 @@
+import { truncateSync } from 'fs'
+
 const toString = Object.prototype.toString
 
 export function isDate(val: any): val is Date {
@@ -10,6 +12,10 @@ export function isDate(val: any): val is Date {
 
 export function isPlainObject(val: any): val is Object {
   return toString.call(val) === '[object Object]'
+}
+
+export function isFormData(val: any): val is FormData {
+  return typeof val !== undefined && val instanceof FormData
 }
 
 export function extend<T, U>(to: T, from: U): T & U {
