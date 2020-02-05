@@ -10,6 +10,8 @@ const defaults: AxiosRequestConfig = {
       Accept: 'application/json,text/plain,*/*'
     }
   },
+  xsrfCookieName: 'XSRG-TOKEN',
+  xsrfHeaderName: 'X-XSRG-TOKEN',
   transformRequest: [
     function(data: any, headers: any): any {
       processHeaders(headers, data)
